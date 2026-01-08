@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MapPin, Shield, Phone, Command } from "lucide-react";
+import { Menu, X, MapPin, Shield, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [{
   path: "/",
@@ -26,7 +26,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
-  return <Command className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+  return <Shield className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -103,6 +103,6 @@ const Navbar = () => {
             </div>
           </motion.div>}
       </AnimatePresence>
-    </Command>;
+    </Shield>;
 };
 export default Navbar;
