@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, MapPin, Phone, Mail, Heart } from "lucide-react";
+import { MapPin, Phone, Mail, Heart, Command } from "lucide-react";
 const Footer = () => {
   return <footer className="bg-foreground text-background">
       <div className="container py-12 md:py-16">
@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-                <Shield className="w-5 h-5 text-primary-foreground" />
+                <Command className="w-5 h-5 text-primary-foreground" />
               </div>
               <div>
                 <span className="font-bold text-lg">SmartStreet</span>
