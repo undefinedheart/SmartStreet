@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, MapPin, Shield, Phone } from "lucide-react";
+import { Menu, X, MapPin, Phone, Command } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [{
   path: "/",
@@ -32,7 +32,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow">
-              <Shield className="w-5 h-5 text-primary-foreground" />
+              <Command className="w-5 h-5 text-primary-foreground" />
             </div>
             <div className="hidden sm:block">
               <span className="font-bold text-lg text-foreground">SmartStreet</span>
