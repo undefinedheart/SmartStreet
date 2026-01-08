@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { Shield, MapPin, Phone, Mail, Heart } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-foreground text-background">
+  return <footer className="bg-foreground text-background">
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
@@ -26,21 +24,23 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {[
-                { path: "/transport", label: "Transport Routes" },
-                { path: "/safety", label: "Women Safety" },
-                { path: "/coverage", label: "Coverage Area" },
-                { path: "/about", label: "About Us" },
-              ].map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-muted-foreground hover:text-background transition-colors"
-                  >
+              {[{
+              path: "/transport",
+              label: "Transport Routes"
+            }, {
+              path: "/safety",
+              label: "Women Safety"
+            }, {
+              path: "/coverage",
+              label: "Coverage Area"
+            }, {
+              path: "/about",
+              label: "About Us"
+            }].map(link => <li key={link.path}>
+                  <Link to={link.path} className="text-sm text-muted-foreground hover:text-background transition-colors">
                     {link.label}
                   </Link>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -67,8 +67,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
+              <li className="flex items-center gap-2">support@smartstreet.in<Mail className="w-4 h-4" />
                 support@saferoute.in
               </li>
               <li className="flex items-center gap-2">
@@ -88,8 +87,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
