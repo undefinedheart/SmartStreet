@@ -79,9 +79,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-muted mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SafeRoute Kolkata. All rights reserved.
-          </p>
+          
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="w-4 h-4 text-destructive fill-destructive" /> for Kolkata
           </p>
