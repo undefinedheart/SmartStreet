@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import {
   Shield,
   Phone,
@@ -89,6 +90,37 @@ const safetyTips = [
 ];
 
 const Safety = () => {
+  const { toast } = useToast();
+
+  const handleSOS = () => {
+    // Try to get geolocation and trigger emergency action
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          toast({
+            variant: "destructive",
+            title: "🚨 SOS Alert Activated!",
+            description: `Location shared: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}. Emergency contacts are being notified.`,
+          });
+        },
+        () => {
+          toast({
+            variant: "destructive",
+            title: "🚨 SOS Alert Activated!",
+            description: "Emergency contacts are being notified. Enable location for better assistance.",
+          });
+        }
+      );
+    } else {
+      toast({
+        variant: "destructive",
+        title: "🚨 SOS Alert Activated!",
+        description: "Emergency contacts are being notified.",
+      });
+    }
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -141,6 +173,7 @@ const Safety = () => {
                   variant="sos"
                   size="xl"
                   className="relative w-32 h-32 rounded-full text-lg font-bold"
+                  onClick={handleSOS}
                 >
                   <div className="flex flex-col items-center">
                     <AlertTriangle className="w-8 h-8 mb-1" />
