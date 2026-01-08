@@ -26,7 +26,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
-  return <Shield className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -103,6 +103,6 @@ const Navbar = () => {
             </div>
           </motion.div>}
       </AnimatePresence>
-    </Shield>;
+    </nav>;
 };
 export default Navbar;
