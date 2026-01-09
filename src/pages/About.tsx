@@ -61,12 +61,7 @@ const About = () => {
               <h2 className="text-2xl sm:text-3xl font-bold mb-6">
                 Making Kolkata Safer & More Connected
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                SafeRoute was born from a simple observation: navigating
-                Kolkata's vast public transport network can be overwhelming,
-                and safety concerns, especially for women commuters, often go
-                unaddressed.
-              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">SmartStreet was born from a simple observation: navigating Kolkata's vast public transport network can be overwhelming, and safety concerns, especially for women commuters, often go unaddressed.</p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 We're building a platform that combines local transport
                 knowledge with women safety features, creating a comprehensive
