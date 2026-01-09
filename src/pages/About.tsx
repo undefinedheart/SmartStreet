@@ -88,11 +88,7 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-4">
                   Built for Kolkata, by Kolkata
                 </h3>
-                <p className="text-primary-foreground/80 leading-relaxed">
-                  We understand the streets, the routes, the stops, and the
-                  unique challenges of commuting in our city. SafeRoute is
-                  designed with local insights to serve our community better.
-                </p>
+                <p className="text-primary-foreground/80 leading-relaxed">We understand the streets, the routes, the stops, and the unique challenges of commuting in our city. SmartStreet is designed with local insights to serve our community better.</p>
               </div>
             </motion.div>
           </div>
