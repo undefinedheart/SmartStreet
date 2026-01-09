@@ -194,11 +194,7 @@ const Contact = () => {
 
               <div className="p-6 rounded-2xl border border-border bg-gradient-card">
                 <h3 className="font-bold text-lg mb-3">Feedback Welcome</h3>
-                <p className="text-muted-foreground text-sm">
-                  Help us improve SafeRoute by sharing your suggestions,
-                  reporting issues, or letting us know about routes and areas
-                  we should add to our coverage.
-                </p>
+                <p className="text-muted-foreground text-sm">Help us improve SmartStreet by sharing your suggestions, reporting issues, or letting us know about routes and areas we should add to our coverage.</p>
               </div>
             </motion.div>
           </div>
