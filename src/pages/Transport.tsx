@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 import {
   Bus,
   MapPin,
@@ -82,6 +83,43 @@ const transportTypes = [
 const Transport = () => {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
+  const { toast } = useToast();
+
+  const handleSearch = () => {
+    if (!source || !destination) {
+      toast({
+        title: "Please fill in both fields",
+        description: "Enter both source and destination to search routes.",
+        variant: "destructive",
+      });
+      return;
+    }
+    toast({
+      title: "Searching routes...",
+      description: `Finding routes from ${source} to ${destination}`,
+    });
+  };
+
+  const handleTransportTypeClick = (typeName: string) => {
+    toast({
+      title: `${typeName} Selected`,
+      description: `Showing all ${typeName.toLowerCase()} routes and options.`,
+    });
+  };
+
+  const handleRouteClick = (from: string, to: string) => {
+    toast({
+      title: "Route Selected",
+      description: `Viewing details for ${from} to ${to}`,
+    });
+  };
+
+  const handleViewAllRoutes = () => {
+    toast({
+      title: "All Routes",
+      description: "Loading complete route directory...",
+    });
+  };
 
   return (
     <Layout>
@@ -143,7 +181,7 @@ const Transport = () => {
                   </div>
                 </div>
 
-                <Button variant="hero" size="lg" className="h-12">
+                <Button variant="hero" size="lg" className="h-12" onClick={handleSearch}>
                   <Search className="w-5 h-5" />
                   Search Routes
                 </Button>
@@ -174,6 +212,7 @@ const Transport = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className="p-6 rounded-2xl bg-gradient-card border border-border hover:shadow-medium transition-all cursor-pointer group"
+                onClick={() => handleTransportTypeClick(type.name)}
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <type.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -215,6 +254,7 @@ const Transport = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 className="p-5 rounded-xl bg-card border border-border hover:shadow-soft transition-all cursor-pointer group"
+                onClick={() => handleRouteClick(route.from, route.to)}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
@@ -264,7 +304,7 @@ const Transport = () => {
             viewport={{ once: true }}
             className="text-center mt-10"
           >
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={handleViewAllRoutes}>
               View All Routes
               <ArrowRight className="w-4 h-4" />
             </Button>
