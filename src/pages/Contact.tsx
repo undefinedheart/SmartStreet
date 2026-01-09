@@ -4,51 +4,55 @@ import Layout from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  MessageSquare,
-  AlertTriangle,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageSquare, AlertTriangle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
-const emergencyContacts = [
-  { name: "Women Helpline", number: "1091 / 181" },
-  { name: "Kolkata Police", number: "100" },
-  { name: "Ambulance", number: "102" },
-  { name: "Police Control Room", number: "033-22143230" },
-];
-
+const emergencyContacts = [{
+  name: "Women Helpline",
+  number: "1091 / 181"
+}, {
+  name: "Kolkata Police",
+  number: "100"
+}, {
+  name: "Ambulance",
+  number: "102"
+}, {
+  name: "Police Control Room",
+  number: "033-22143230"
+}];
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
-    message: "",
+    message: ""
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
+      description: "We'll get back to you as soon as possible."
     });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: ""
+    });
   };
-
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 bg-gradient-hero">
         <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl mx-auto text-center"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
               Contact & <span className="text-gradient-primary">Help</span>
             </h1>
@@ -69,18 +73,12 @@ const Contact = () => {
               <span className="font-semibold">Emergency?</span>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              {emergencyContacts.map((contact) => (
-                <a
-                  key={contact.number}
-                  href={`tel:${contact.number.replace(/[^0-9]/g, "")}`}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-destructive/30 transition-colors"
-                >
+              {emergencyContacts.map(contact => <a key={contact.number} href={`tel:${contact.number.replace(/[^0-9]/g, "")}`} className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-destructive/30 transition-colors">
                   <Phone className="w-4 h-4 text-destructive" />
                   <span className="text-sm font-medium">
                     {contact.name}: {contact.number}
                   </span>
-                </a>
-              ))}
+                </a>)}
             </div>
           </div>
         </div>
@@ -91,11 +89,15 @@ const Contact = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: -20
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }}>
               <div className="flex items-center gap-2 mb-6">
                 <MessageSquare className="w-5 h-5 text-primary" />
                 <h2 className="text-xl font-bold">Send us a Message</h2>
@@ -105,52 +107,34 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Name</label>
-                    <Input
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      required
-                    />
+                    <Input placeholder="Your name" value={formData.name} onChange={e => setFormData({
+                    ...formData,
+                    name: e.target.value
+                  })} required />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Email</label>
-                    <Input
-                      type="email"
-                      placeholder="your@email.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      required
-                    />
+                    <Input type="email" placeholder="your@email.com" value={formData.email} onChange={e => setFormData({
+                    ...formData,
+                    email: e.target.value
+                  })} required />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Subject</label>
-                  <Input
-                    placeholder="How can we help?"
-                    value={formData.subject}
-                    onChange={(e) =>
-                      setFormData({ ...formData, subject: e.target.value })
-                    }
-                    required
-                  />
+                  <Input placeholder="How can we help?" value={formData.subject} onChange={e => setFormData({
+                  ...formData,
+                  subject: e.target.value
+                })} required />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Message</label>
-                  <Textarea
-                    placeholder="Tell us more about your query..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    required
-                  />
+                  <Textarea placeholder="Tell us more about your query..." rows={5} value={formData.message} onChange={e => setFormData({
+                  ...formData,
+                  message: e.target.value
+                })} required />
                 </div>
 
                 <Button variant="hero" size="lg" type="submit">
@@ -161,12 +145,15 @@ const Contact = () => {
             </motion.div>
 
             {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            x: 20
+          }} whileInView={{
+            opacity: 1,
+            x: 0
+          }} viewport={{
+            once: true
+          }} className="space-y-8">
               <div>
                 <h2 className="text-xl font-bold mb-6">Contact Information</h2>
                 <div className="space-y-4">
@@ -176,12 +163,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium text-foreground">Email</p>
-                      <a
-                        href="mailto:support@saferoute.in"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        support@saferoute.in
-                      </a>
+                      <a href="mailto:support@saferoute.in" className="text-muted-foreground hover:text-primary transition-colors">support@smartstreet.in</a>
                     </div>
                   </div>
 
@@ -222,8 +204,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Contact;
