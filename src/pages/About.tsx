@@ -152,12 +152,7 @@ const About = () => {
             <h2 className="text-2xl sm:text-3xl font-bold mb-6">
               Join Our Mission
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              SafeRoute is a community-first initiative. We're constantly
-              improving our platform based on feedback from Kolkata commuters.
-              Have suggestions or want to contribute? We'd love to hear from
-              you.
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8">SmartStreet is a community-first initiative. We're constantly improving our platform based on feedback from Kolkata commuters. Have suggestions or want to contribute? We'd love to hear from you.</p>
             <motion.div whileHover={{
             scale: 1.02
           }} whileTap={{
