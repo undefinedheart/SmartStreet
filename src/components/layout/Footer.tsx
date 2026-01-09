@@ -67,7 +67,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Get in Touch</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2">support@smartstreet.in
+              <li className="flex items-center gap-2">support@smartstreet.in support@smartstreet.in
 support@smartstreet.in<Mail className="w-4 h-4" />
                 support@saferoute.in
               </li>
